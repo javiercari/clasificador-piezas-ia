@@ -1,2 +1,6 @@
 # clasificador-piezas-ia
 MATERIA IA
+
+PARA MI CLASE 
+
+JAVIER CORONA ARIAS 
