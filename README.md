@@ -1,8 +1,14 @@
-# clasificador-piezas-ia
-MATERIA IA
+# Clasificador de piezas - Material
 
-PARA MI CLASE 
+Proyecto del curso Inteligencia Artificial.
 
-JAVIER CORONA ARIAS 
-220398647
+- Alumno: Javier Corona Arias
+- Código: 220398647
+- Dominio: clasificación por material (madera, metal, plástico)
 
+## Descripción
+
+Sistema que lee señales de sensores mientras una pieza pasa frente a ellos,
+clasifica de qué tipo es con un modelo de aprendizaje de máquina y acciona
+un actuador para enrutarla. Crece semana a semana con los temas del curso:
+adquisición, características, clasificación, anomalías y despliegue en PLC.
