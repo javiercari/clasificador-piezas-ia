@@ -4,7 +4,7 @@ Proyecto del curso Inteligencia Artificial.
 
 - Alumno: Javier Corona Arias
 - Código: 220398647
-- Dominio: clasificación por material (madera, metal, plástico)
+- Dominio: clasificación por tamaño (chico,mediano,grande)
 
 ## Descripción
 
