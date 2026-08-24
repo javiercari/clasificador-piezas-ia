@@ -8,7 +8,7 @@ Fui creando mi cuenta de github, cree mi repositorio y la carpetas, como bitaora
 Descargue la aplicacion de git bash.
 Tambien aprendi a como hacer push, como trabajar en el cmd y como hacer commit.
 
-## Semana 2 - Encuadre y configuración del entorno
+
 
 **¿Cuál es la diferencia entre programar la regla y aprender la regla?** Si yo la programo le estoy diciendo a la computadora como hacerlo, en cambio si hago que aprenda yo le doy ejemplos y ella por si sola va a entender cual es la regla 
 
@@ -24,12 +24,23 @@ Distancia = 6.7 cm
 Salida del modelo:
 
 MEDIANO
-------------------------------------------------------------------------------------------------------------------------------
+
 Después de que el modelo clasifique la pieza, un servomotor puede mover una compuerta para enviarla al lugar correspondiente.
 
 Por ejemplo:
 
 CHICO → servo mueve la compuerta hacia la izquierda.
+
+
+
+**Dato**                                                               HC-SR04
+**Tipo de salida**	                                                      Digital, por pulso (TTL)
+**Rango de medición**	                                                         2 cm – 400 cm
+**Tiempo de respuesta**	                                                 ≈ 60 ms entre mediciones recomendadas
+**Voltaje de alimentación**	                                                        5 V DC
+
+
+
 
 ### Avance del proyecto
 
