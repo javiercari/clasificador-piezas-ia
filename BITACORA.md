@@ -39,8 +39,40 @@ CHICO → servo mueve la compuerta hacia la izquierda.
 **Tiempo de respuesta**	                                                 ≈ 60 ms entre mediciones recomendadas
 **Voltaje de alimentación**	                                                        5 V DC
 
+## Semana 2 - La primera señal del sensor (U1)
 
+En mi equipo me toco medir la distancia, para esto utilizare el sensor ultrasonico, el cual investigando lo mejor seria ponerlo arriba para que cuando pase el objeto mida la presencia del objeto y depende la duracion de la señal se le da una distancia 
 
+Salida: Digital, por pulso (TTL).
+
+Tiene dos señales principales:
+
+TRIG: entrada digital que recibe un pulso para iniciar la medición.
+ECHO: salida digital por pulso. La duración del pulso indica la distancia al objeto.
+
+Ejemplos de como se verian:
+
+4.32
+7.85
+11.27
+
+Que representarían, por ejemplo:
+
+4.32 cm → objeto chico
+7.85 cm → objeto mediano
+11.27 cm → objeto grande
+
+Python necesita recibir únicamente datos numéricos del sensor para poder procesarlos.
+
+Si Arduino envía:
+
+Serial.println("Leyendo...");
+
+Python recibiría el texto:
+
+Leyendo...
+
+y no podría interpretarlo directamente como una distancia para entrenar o usar el modelo.
 
 ### Avance del proyecto
 
@@ -54,3 +86,4 @@ Este es el procedimiento para hacer push:
 -luego hago git add .
 luego git commit
 luego git push
+
