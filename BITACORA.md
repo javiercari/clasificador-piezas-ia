@@ -39,7 +39,22 @@ CHICO → servo mueve la compuerta hacia la izquierda.
 **Tiempo de respuesta**	                                                 ≈ 60 ms entre mediciones recomendadas
 **Voltaje de alimentación**	                                                        5 V DC
 
+
+### Avance del proyecto
+
+Aun vamos avanzando para poder ir viendo que se va a trabajar pero sabiendo las bases y herramientas que vamos a ocupar. Ya que aun no se sabe que haremos
+
+ya logre hacer push a github
+
+Este es el procedimiento para hacer push:
+
+-Para hacer un push primero edito mi archivo
+-luego hago git add .
+luego git commit
+luego git push
+
 ## Semana 2 - La primera señal del sensor (U1)
+### Antes de la clase
 
 En mi equipo me toco medir la distancia, para esto utilizare el sensor ultrasonico, el cual investigando lo mejor seria ponerlo arriba para que cuando pase el objeto mida la presencia del objeto y depende la duracion de la señal se le da una distancia 
 
@@ -76,14 +91,4 @@ y no podría interpretarlo directamente como una distancia para entrenar o usar 
 
 ### Avance del proyecto
 
-Aun vamos avanzando para poder ir viendo que se va a trabajar pero sabiendo las bases y herramientas que vamos a ocupar. Ya que aun no se sabe que haremos
-
-ya logre hacer push a github
-
-Este es el procedimiento para hacer push:
-
--Para hacer un push primero edito mi archivo
--luego hago git add .
-luego git commit
-luego git push
-
+Compre el sensor ultrasonico y cada miembro del equipo compro el suyo 
