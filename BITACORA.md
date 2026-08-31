@@ -56,6 +56,8 @@ luego git push
 ## Semana 2 - La primera señal del sensor (U1)
 ### Antes de la clase
 
+BLOQUE 1
+
 En mi equipo me toco medir la distancia, para esto utilizare el sensor ultrasonico, el cual investigando lo mejor seria ponerlo arriba para que cuando pase el objeto mida la presencia del objeto y depende la duracion de la señal se le da una distancia 
 
 Salida: Digital, por pulso (TTL).
@@ -88,6 +90,8 @@ Python recibiría el texto:
 Leyendo...
 
 y no podría interpretarlo directamente como una distancia para entrenar o usar el modelo.
+
+BLOQUE 2
 
 ¿Cuánto tarda tu pieza en cruzar frente al sensor?
 Tiempo estimado: 0.6 segundos (600 ms).
