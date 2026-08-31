@@ -26,5 +26,5 @@ void loop() {
   Serial.println(distancia);
 
   // Pausa entre lecturas (ajusta según la velocidad de la banda)
-  delay(50); 
+  delay(10); 
 }
