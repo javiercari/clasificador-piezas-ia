@@ -89,6 +89,16 @@ Leyendo...
 
 y no podría interpretarlo directamente como una distancia para entrenar o usar el modelo.
 
+¿Cuánto tarda tu pieza en cruzar frente al sensor?
+Tiempo estimado: 0.6 segundos (600 ms).
+
+Con ese tiempo, ¿qué delay() eliges para tener al menos 20 muestras del evento?**
+   delay(10) en Arduino (da lecturas cada 10 ms / 100 Hz).
+   Justificación: Para obtener al menos 20 muestras en 600 ms, requiero un intervalo máximo de 30 ms por muestra ($600\text{ ms} / 20 = 30\text{ ms}$). Use delay(10) para ir bien sobrado dentro del límite técnico del sensor HC-SR04 (~60 ms por eco).
+
+   ¿Cuántas muestras te da eso mientras la pieza pasa?
+   60 muestras aproximadamente durante el evento completo ($600\text{ ms} / 10\text{ ms} = 60\text{ muestras}$). 
+
 ### Avance del proyecto
 
 Compre el sensor ultrasonico y cada miembro del equipo compro el suyo 
