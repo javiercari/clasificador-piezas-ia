@@ -23,7 +23,7 @@ def leer_sensor_ultrasonico():
     """
     time.sleep(0.01)  # Simula el delay(10) del Arduino
     
-    evento periódico de paso de pieza
+    #evento periódico de paso de pieza
     t = time.time() % 6  # Ciclo de 6 segundos
     if 2.0 <= t <= 4.0:
         distancia = DISTANCIA_REPOSO - ALTURA_PIEZA  # Pieza presente (~15 cm)
@@ -104,3 +104,5 @@ if __name__ == "__main__":
         loop()
     except KeyboardInterrupt:
         print("\nPrograma detenido por el usuario.")
+
+   

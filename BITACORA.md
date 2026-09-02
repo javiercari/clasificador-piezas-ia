@@ -106,3 +106,28 @@ Con ese tiempo, ¿qué delay() eliges para tener al menos 20 muestras del evento
 ### Avance del proyecto
 
 Compre el sensor ultrasonico y cada miembro del equipo compro el suyo 
+
+
+
+## Semana 3- Recolección de datos etiquetados (U2)
+### Antes de la clase
+
+**Estructura de las columnas de `datos/datos.csv`:**
+  * `ventana`: ID del evento completo (pasada de la pieza frente al sensor).
+  * `t`: Tiempo o contador de muestra dentro del evento (de 0 en adelante).
+  * `valor`: Distancia en cm medida por el sensor ultrasónico (HC-SR04).
+  * `etiqueta`: Tamaño de la pieza identificado manualmente.
+
+* **Etiquetas de tamaño (en minúsculas y sin acentos):**
+  * `chica`
+  * `mediana`
+  * `grande`
+
+* **Ejemplo de 5 filas de la tabla (Paso de una pieza mediana frente al ultrasónico):**
+  ```csv
+  ventana,t,valor,etiqueta
+  0,0,30.15,mediana
+  0,1,30.02,mediana
+  0,2,16.20,mediana
+  0,3,15.95,mediana
+  0,4,29.88,mediana
