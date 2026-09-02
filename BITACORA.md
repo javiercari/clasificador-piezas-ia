@@ -112,6 +112,8 @@ Compre el sensor ultrasonico y cada miembro del equipo compro el suyo
 ## Semana 3- Recolección de datos etiquetados (U2)
 ### Antes de la clase
 
+BLOQUE 1
+
 **Estructura de las columnas de `datos/datos.csv`:**
   * `ventana`: ID del evento completo (pasada de la pieza frente al sensor).
   * `t`: Tiempo o contador de muestra dentro del evento (de 0 en adelante).
@@ -131,3 +133,16 @@ Compre el sensor ultrasonico y cada miembro del equipo compro el suyo
   0,2,16.20,mediana
   0,3,15.95,mediana
   0,4,29.88,mediana
+
+
+  BLOQUE 2
+
+  ### Protocolo de recolección de datos
+
+* **Ventanas por clase:** Se capturarán **30 ventanas por clase** (90 ventanas en total para `chica`, `mediana` y `grande`), asegurando un dataset perfectamente balanceado.
+* **Orden de captura:** Las pasadas se realizarán de manera estrictamente **alternada** (`chica` -> `mediana` -> `grande` -> `chica`...), evitando capturar un tipo de pieza por bloques para prevenir que la fatiga o los cambios térmicos del sensor se asocien a una sola etiqueta.
+* **Control de velocidad:**
+  * Se pegará sobre la mesa una cinta adhesiva de **30 cm de longitud** indicando el punto exacto de inicio y fin del recorrido.
+  * Se marcará el ritmo con un metrónomo a $60\text{ BPM}$ para completar cada pasado en **exactamente 1 segundo** ($0.6\text{ s}$ de detección efectiva frente al sensor).
+* **Geometría del montaje:** La pieza pasará rozando la mesa a una distancia fija de **30 cm del sensor ultrasónico** (en reposo), manteniéndose alineada 
+
