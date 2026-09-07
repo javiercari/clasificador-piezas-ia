@@ -146,3 +146,9 @@ BLOQUE 1
   * Se marcará el ritmo con un metrónomo a $60\text{ BPM}$ para completar cada pasado en **exactamente 1 segundo** ($0.6\text{ s}$ de detección efectiva frente al sensor).
 * **Geometría del montaje:** La pieza pasará rozando la mesa a una distancia fija de **30 cm del sensor ultrasónico** (en reposo), manteniéndose alineada 
 
+## Semana 4-Limpieza y normalización de señales (U2)
+### Antes de la clase
+
+Se me complico un poco iniciarla ya que tuve que revisar otra vez mi bitacora por que como que algo estaba mal en mi semana 3, un compañero me ayudo para comparar lo suyo con lo mio y me di cuenta que estaba bien.
+Ya despues de esto el sensor lo quise probar y el echo no estaba funcionando bien, lo probe varias veces y al parecer ya no funciona, asi que use otro que traia de repuesto, todo esto me quito mucho tiempo.
+Ya cuando quise iniciar el bloque 1 ya no tenia tiempo y no pude crear el archivo de limpiar.py
