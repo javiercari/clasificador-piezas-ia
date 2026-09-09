@@ -5,7 +5,7 @@ import time
 import serial
 import pandas as pd
 
-PUERTO = 'COM4'         
+PUERTO = 'COM5'         
 BAUDIOS = 115200
 N_MUESTRAS = 200          # Largo de cada ventana
 ARCHIVO = 'datos/datos.csv'
