@@ -152,3 +152,5 @@ BLOQUE 1
 Se me complico un poco iniciarla ya que tuve que revisar otra vez mi bitacora por que como que algo estaba mal en mi semana 3, un compañero me ayudo para comparar lo suyo con lo mio y me di cuenta que estaba bien.
 Ya despues de esto el sensor lo quise probar y el echo no estaba funcionando bien, lo probe varias veces y al parecer ya no funciona, asi que use otro que traia de repuesto, todo esto me quito mucho tiempo.
 Ya cuando quise iniciar el bloque 1 ya no tenia tiempo y no pude crear el archivo de limpiar.py
+
+En la clase de hoy se resolvieron dudas, se explico acerca del que tiene que ver el promedio en los datos que da el sensor, se reitero la diferencia entre muestras y ventanas, y acerca de los valores maximos y minimos .
