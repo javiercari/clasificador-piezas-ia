@@ -14,3 +14,6 @@ tus figuras en `figuras/` y la demo del bucle de control.
 
 ### Nota rápida (2026-09-14) - s04
 El commit `s04 bloque 1` solo agregó dos líneas a tu `BITACORA.md` (los encabezados de la semana); no hay `codigo/limpiar.py` ni ningún filtrado real todavía, y tampoco el bloque 2. Sí tienes `datos.csv` capturado (800 ventanas, aunque muy desbalanceado: 600 `grande` contra 200 `chica`), así que hay con qué trabajar. Antes de avanzar a la semana 5 necesitas resolver la limpieza de tu señal: `datos_limpios.csv` es la base de las features que vienen.
+
+### Nota rápida (2026-09-21) - s05
+No veo commits de la semana 05 (`s05 bloque 1`/`s05 bloque 2`). Si tuviste un problema, cuéntamelo para que quede en la bitácora.
