@@ -56,7 +56,7 @@ luego git push
 ## Semana 2 - La primera señal del sensor (U1)
 ### Antes de la clase
 
-BLOQUE 1
+#### BLOQUE 1
 
 En mi equipo me toco medir la distancia, para esto utilizare el sensor ultrasonico, el cual investigando lo mejor seria ponerlo arriba para que cuando pase el objeto mida la presencia del objeto y depende la duracion de la señal se le da una distancia 
 
@@ -91,7 +91,7 @@ Leyendo...
 
 y no podría interpretarlo directamente como una distancia para entrenar o usar el modelo.
 
-BLOQUE 2
+#### BLOQUE 2
 
 ¿Cuánto tarda tu pieza en cruzar frente al sensor?
 Tiempo estimado: 0.6 segundos (600 ms).
@@ -112,34 +112,37 @@ Compre el sensor ultrasonico y cada miembro del equipo compro el suyo
 ## Semana 3- Recolección de datos etiquetados (U2)
 ### Antes de la clase
 
-BLOQUE 1
+#### BLOQUE 1
 
 **Estructura de las columnas de `datos/datos.csv`:**
-  * `ventana`: ID del evento completo (pasada de la pieza frente al sensor).
-  * `t`: Tiempo o contador de muestra dentro del evento (de 0 en adelante).
-  * `valor`: Distancia en cm medida por el sensor ultrasónico (HC-SR04).
-  * `etiqueta`: Tamaño de la pieza identificado manualmente.
 
-* **Etiquetas de tamaño (en minúsculas y sin acentos):**
+   `ventana`: ID del evento completo (pasada de la pieza frente al sensor).
+   `t`: Tiempo o contador de muestra dentro del evento (de 0 en adelante).
+   `valor`: Distancia en cm medida por el sensor ultrasónico (HC-SR04).
+   `etiqueta`: Tamaño de la pieza identificado manualmente.
+
+ **Etiquetas de tamaño (en minúsculas y sin acentos):**
   * `chica`
   * `mediana`
   * `grande`
 
-* **Ejemplo de 5 filas de la tabla (Paso de una pieza mediana frente al ultrasónico):**
-  ```csv
+ **Ejemplo de 5 filas de la tabla (Paso de una pieza mediana frente al ultrasónico):**
+
+  ```python
   ventana,t,valor,etiqueta
   0,0,30.15,mediana
   0,1,30.02,mediana
   0,2,16.20,mediana
   0,3,15.95,mediana
   0,4,29.88,mediana
+```
 
+#### Bloque 2 
 
-  BLOQUE 2
 
   ### Protocolo de recolección de datos
 
-* **Ventanas por clase:** Se capturarán **30 ventanas por clase** (90 ventanas en total para `chica`, `mediana` y `grande`), asegurando un dataset perfectamente balanceado.
+**Ventanas por clase:** Se capturarán **30 ventanas por clase** (90 ventanas en total para `chica`, `mediana` y `grande`), asegurando un dataset perfectamente balanceado.
 * **Orden de captura:** Las pasadas se realizarán de manera estrictamente **alternada** (`chica` -> `mediana` -> `grande` -> `chica`...), evitando capturar un tipo de pieza por bloques para prevenir que la fatiga o los cambios térmicos del sensor se asocien a una sola etiqueta.
 * **Control de velocidad:**
   * Se pegará sobre la mesa una cinta adhesiva de **30 cm de longitud** indicando el punto exacto de inicio y fin del recorrido.
@@ -148,6 +151,8 @@ BLOQUE 1
 
 ## Semana 4-Limpieza y normalización de señales (U2)
 ### Antes de la clase
+
+#### Bloque 1
 
 Se me complico un poco iniciarla ya que tuve que revisar otra vez mi bitacora por que como que algo estaba mal en mi semana 3, un compañero me ayudo para comparar lo suyo con lo mio y me di cuenta que estaba bien.
 Ya despues de esto el sensor lo quise probar y el echo no estaba funcionando bien, lo probe varias veces y al parecer ya no funciona, asi que use otro que traia de repuesto, todo esto me quito mucho tiempo.
@@ -168,7 +173,7 @@ El sensor ultrasónico (HC-SR04) mide de 2 a 400 cm. Descarté cualquier lectura
 Elegí un filtro de media móvil con ventana de 5 muestras. Como el evento de la pieza dura alrededor de 200 muestras, un filtro de 5 es bastante chico: alcanza a suavizar la vibración sin aplanar los picos ni deformar la altura, por lo que se sigue notando bien la diferencia entre pieza chica, mediana y grande.
 
 
-BLOQUE 2
+#### BLOQUE 2
 
 **Cuánto se movió tu línea base entre la primera y la última ventana de la sesión?**
 Entre la primera ventana (ventana 0) y la última (ventana 3), la línea base en reposo pasó de 11.72 cm a 11.73 cm. El movimiento total de la línea base fue de 0.00 cm (variación exacta de 0.0044 cm), lo que indica que el valor de reposo se mantuvo casi idéntico a lo largo de la prueba.
@@ -178,3 +183,10 @@ Elegí la normalización Min-Max (que escala todas las lecturas al rango de 0 a 
 
 **Al comparar antes y después: ¿se parecen más entre sí las ventanas de una misma clase?**
 Sí, se parecen mucho más. Antes de procesar los datos, las ventanas de la misma clase tenían pequeñas variaciones en la distancia de reposo y en la amplitud por la vibración del sensor. Después de restar la línea base y aplicar Min-Max, todas las ventanas de una misma clase inician exacto en 0 y alcanzan su pico en 1, logrando que los perfiles de la señal para piezas chicas, medianas o grandes tengan formas mucho más uniformes.
+
+#### Correcion de REVISION.md
+
+En la semana 4 ya esta todo agregado en bitacora y ya estan los archivos que se piden, que era lo que me pidio en la revision.
+Tambien corregi la estructura de bitacora.
+
+
