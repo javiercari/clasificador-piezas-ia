@@ -154,3 +154,15 @@ Ya despues de esto el sensor lo quise probar y el echo no estaba funcionando bie
 Ya cuando quise iniciar el bloque 1 ya no tenia tiempo y no pude crear el archivo de limpiar.py
 
 En la clase de hoy se resolvieron dudas, se explico acerca del que tiene que ver el promedio en los datos que da el sensor, se reitero la diferencia entre muestras y ventanas, y acerca de los valores maximos y minimos .
+
+**Qué tipo de ruido ves en tu señal y de dónde crees que viene?**
+
+Veo un ruido aleatorio de alta frecuencia (como si la línea estuviera vibrando un poco), que creo que viene de las vibraciones del motor de la banda y variaciones de la fuente de alimentación. También salen valores atípicos (picos raros de 0 o mayores a 400 cm), que ocurren cuando el ultrasonido rebota mal en la pieza o se le agota el tiempo de espera al sensor.
+
+**Qué rango físico tiene tu sensor y qué valores estás descartando por imposibles?**
+
+El sensor ultrasónico (HC-SR04) mide de 2 a 400 cm. Descarté cualquier lectura menor o igual a 0 cm y mayor a 400 cm porque son físicamente imposibles en la banda y solo representan errores de medición o lecturas perdidas.
+
+**Qué tamaño de filtro elegiste y por qué, en relación con la duración de tu evento?**
+
+Elegí un filtro de media móvil con ventana de 5 muestras. Como el evento de la pieza dura alrededor de 200 muestras, un filtro de 5 es bastante chico: alcanza a suavizar la vibración sin aplanar los picos ni deformar la altura, por lo que se sigue notando bien la diferencia entre pieza chica, mediana y grande.
