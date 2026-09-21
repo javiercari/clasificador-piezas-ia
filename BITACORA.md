@@ -166,3 +166,15 @@ El sensor ultrasónico (HC-SR04) mide de 2 a 400 cm. Descarté cualquier lectura
 **Qué tamaño de filtro elegiste y por qué, en relación con la duración de tu evento?**
 
 Elegí un filtro de media móvil con ventana de 5 muestras. Como el evento de la pieza dura alrededor de 200 muestras, un filtro de 5 es bastante chico: alcanza a suavizar la vibración sin aplanar los picos ni deformar la altura, por lo que se sigue notando bien la diferencia entre pieza chica, mediana y grande.
+
+
+BLOQUE 2
+
+**Cuánto se movió tu línea base entre la primera y la última ventana de la sesión?**
+Entre la primera ventana (ventana 0) y la última (ventana 3), la línea base en reposo pasó de 11.72 cm a 11.73 cm. El movimiento total de la línea base fue de 0.00 cm (variación exacta de 0.0044 cm), lo que indica que el valor de reposo se mantuvo casi idéntico a lo largo de la prueba.
+
+**¿Qué normalización elegiste y por qué?**
+Elegí la normalización Min-Max (que escala todas las lecturas al rango de 0 a 1). La elegí porque en los pasos previos ya habíamos eliminado los valores atípicos fuera del rango físico del sensor (0 a 400 cm). Al no tener picos absurdos o ruido extremo que pudieran aplastar la gráfica, Min-Max es ideal porque mantiene las proporciones de la pieza y deja todas las ventanas listas para compararse en una misma escala de 0 a 1.
+
+**Al comparar antes y después: ¿se parecen más entre sí las ventanas de una misma clase?**
+Sí, se parecen mucho más. Antes de procesar los datos, las ventanas de la misma clase tenían pequeñas variaciones en la distancia de reposo y en la amplitud por la vibración del sensor. Después de restar la línea base y aplicar Min-Max, todas las ventanas de una misma clase inician exacto en 0 y alcanzan su pico en 1, logrando que los perfiles de la señal para piezas chicas, medianas o grandes tengan formas mucho más uniformes.
