@@ -190,3 +190,22 @@ En la semana 4 ya esta todo agregado en bitacora y ya estan los archivos que se 
 Tambien corregi la estructura de bitacora.
 
 
+## Semana 5
+### Antes de la clase 
+
+| Característica | Justificación para clasificación de tamaño con sensor ultrasónico |
+| :--- | :--- |
+| **Duración del evento** | Mide cuántas muestras tarda la pieza en pasar bajo el sensor. Una pieza grande o larga mantiene el sensor obstruido por más tiempo (más muestras) que una chica. |
+| **Mínimo (`min`)** | El ultrasónico mide distancia. Cuando pasa una pieza alta, la distancia disminuye; por lo tanto, el mínimo indica qué tan alta es la pieza (a mayor altura, menor distancia registrada). |
+| **Rango (`max - min`)** | Mide la diferencia entre la distancia de reposo (banda vacía) y la parte más alta de la pieza, representando directamente la altura física del objeto. |
+| **Energía ($\sum x^2$)** | Combina la altura de la pieza con el tiempo que tarda en pasar. Una pieza grande tendrá mayor energía acumulada durante el evento. |
+| **Media (`mean`)** | Promedia la desviación de la distancia durante la ventana. Piezas más grandes reducen más el promedio de la distancia leída. |
+| **Desviación Estándar (`std`)** | Mide la variabilidad de la lectura. Muestra la diferencia entre la zona llana de la banda y el perfil que sobresale de la pieza. |
+
+#### Predicción de características
+
+La mejor característica será: La duración del evento. Debido a que la banda avanza a velocidad constante, la longitud física de la pieza se refleja directamente en el número de muestras que dura la caída de distancia.
+ 
+ La característica más inútil será: La media. Al promediar toda la ventana (incluyendo las lecturas de reposo antes y después de que pase la pieza), la información del tamaño real se diluye y puede confundir piezas de distintas proporciones.
+
+
