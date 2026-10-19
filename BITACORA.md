@@ -221,3 +221,16 @@ La mejor característica será: La duración del evento. Debido a que la banda a
 
 3. **Si hay dos clases que se encimen, cuáles y qué vas a hacer:**
    * En la muestra actual, las nubes están bien separadas debido a las diferencias claras de tamaño. En caso de que clases cercanas como chica y mediana lleguen a encimarse al recolectar más datos, la estrategia será usar la característica extra  o combinar tres características en un espacio multidimensional usando un algoritmo clasificador
+
+
+
+
+
+
+
+## Semana 8 
+### Antes de la clase 
+
+#### Bloque 1
+
+Las respuestas de este bloque aun no las puedo responder ya que aun voy algo atrasado, en la clase virtual le comente mi situacion respecto a mis tiempos ya que estudio y trabajo y me comento que estaba bien. Solo lo que entrego es el codigo evaluar hecho. Tratare de ponerme al corriente para cuando llegue aqui ya poder responderlo.
