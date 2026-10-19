@@ -193,6 +193,8 @@ Tambien corregi la estructura de bitacora.
 ## Semana 5
 ### Antes de la clase 
 
+#### Bloque 1
+
 | Característica | Justificación para clasificación de tamaño con sensor ultrasónico |
 | :--- | :--- |
 | **Duración del evento** | Mide cuántas muestras tarda la pieza en pasar bajo el sensor. Una pieza grande o larga mantiene el sensor obstruido por más tiempo (más muestras) que una chica. |
@@ -208,4 +210,14 @@ La mejor característica será: La duración del evento. Debido a que la banda a
  
  La característica más inútil será: La media. Al promediar toda la ventana (incluyendo las lecturas de reposo antes y después de que pase la pieza), la información del tamaño real se diluye y puede confundir piezas de distintas proporciones.
 
+#### Bloque 2
 
+1. **¿Cuántas filas y cuántas columnas quedó tu `features.csv`, y por qué ese número de filas?**
+   * **Dimensiones:** Quedó con 4 filas y 9 columnas.
+   * **Razón:** Me reduce cada ventana completa que tenía ~196 muestras de tiempo a una sola fila con métricas resumen. Como en el dataset capture 4 ventanas/eventos (3 de clase `grande` y 1 de clase `chica`), el dataset final tiene exactamente 4 filas.
+
+2. **¿Qué par de características separa mejor tus clases, con la gráfica que lo muestra?**
+   * El par rango contra la  duracion , separa muy bien las clases. En la gráfica figuras/features.png se observa cómo las piezas chicas mediana y grandes se ubican en lugares o regiones  distintas del plano cartesiano según su amplitud de caída de distancia y el tiempo que tardaron en cruzar.
+
+3. **Si hay dos clases que se encimen, cuáles y qué vas a hacer:**
+   * En la muestra actual, las nubes están bien separadas debido a las diferencias claras de tamaño. En caso de que clases cercanas como chica y mediana lleguen a encimarse al recolectar más datos, la estrategia será usar la característica extra  o combinar tres características en un espacio multidimensional usando un algoritmo clasificador
