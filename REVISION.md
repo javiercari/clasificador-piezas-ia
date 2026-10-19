@@ -17,3 +17,9 @@ El commit `s04 bloque 1` solo agregó dos líneas a tu `BITACORA.md` (los encabe
 
 ### Nota rápida (2026-09-21) - s05
 No veo commits de la semana 05 (`s05 bloque 1`/`s05 bloque 2`). Si tuviste un problema, cuéntamelo para que quede en la bitácora.
+
+### Nota rápida (2026-10-19) - s06
+No veo commits de la semana 06 (`s06 bloque 1`/`s06 bloque 2`). Si tuviste un problema, cuéntamelo para que quede en la bitácora.
+
+### Nota rápida (2026-10-19) - s07
+Veo que hoy subiste los dos bloques de la semana 5, bien que te estés poniendo al día. De la semana 07 todavía no veo commits (`s07 bloque 1`/`s07 bloque 2`). Si tuviste un problema, cuéntamelo para que quede en la bitácora.
