@@ -264,6 +264,18 @@ La mejor característica será: La duración del evento. Debido a que la banda a
 
    Razón: El fenómeno medido con el sensor ultrasónico no involucra vibraciones ni patrones oscilatorios periódicos (como el sonido o la rugosidad). Dado que el espectro es prácticamente el mismo para todas las pasadas a velocidad constante de la banda, agregar estas características no aporta información discriminante relevante y agregaría ruido al modelo clasificador.
 
+### Avance del proyecto - Semana 6: Dataset Definitivo de Características
+
+***Aportación del análisis en frecuencia:**
+  El análisis en frecuencia (FFT) no sirvió para discriminar las clases de este proyecto. 
+  *Explicación física:* El paso de una pieza sólida bajo el sensor ultrasónico HC-SR04 genera un pulso continuo y suave en el tiempo (caída de distancia). No es un fenómeno oscilatorio, vibratorio o armónico. Toda la energía del espectro se concentra por debajo de los 2 Hz para todas las pasadas, por lo que las métricas en frecuencia (centroide, frecuencia dominante y energía de banda) se muestran idénticas entre piezas de diferente tamaño.
+
+ **Lista final de características para entrenamiento:**
+  Las 7 características seleccionadas son: media, desv, minimo, maximo, rango, energia y duracion.
+
+ **Separación de clases y predicción del clasificador:**
+  Al graficar pares de características principales como rango vs duracion o desv vs minimo, las clases chica y grande quedan completamente separadas en el espacio cartesiano. 
+  *Predicción:* Dado el nivel de separabilidad de los datos en el dominio del tiempo, se predice que algoritmos tradicionales como k-NN o Árboles de Decisión alcanzarán un 100% de exactitud  en la Semana 7 sin necesidad de modelos más complejos.
 
 ## Semana 8 
 ### Antes de la clase 
