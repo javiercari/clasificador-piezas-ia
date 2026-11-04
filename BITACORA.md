@@ -222,7 +222,27 @@ La mejor característica será: La duración del evento. Debido a que la banda a
 3. **Si hay dos clases que se encimen, cuáles y qué vas a hacer:**
    * En la muestra actual, las nubes están bien separadas debido a las diferencias claras de tamaño. En caso de que clases cercanas como chica y mediana lleguen a encimarse al recolectar más datos, la estrategia será usar la característica extra  o combinar tres características en un espacio multidimensional usando un algoritmo clasificador
 
+## Semana 6
+### Antes de la clase
+#### Bloque 1
 
+### Antes de la clase - Semana 6 Bloque 1: Frecuencia, Nyquist y Resolución
+
+1. **Frecuencia de muestreo :**
+    100 muestras por segundo, que son de el delay(10) de 10 ms en mi código de Arduino sensor.ino.
+
+2. **Frecuencia de Nyquist :**
+   f_nyquist = fs / 2 = 100 Hz / 2 = 50 Hz.
+    **Qué significa para mi señal:** Indica el límite físico de frecuencias que mi sistema puede medir. Cualquier fenómeno o temblor en la banda transportadora que ocurra a más de 50 veces por segundo (> 50 Hz) no podrá ser detectado y provocará aliasing (aparecerá en el espectro disfrazado como una frecuencia baja falsa).
+
+3. **Resolución en frecuencia :**
+   Con N = 196 muestras por ventana y fs = 100 Hz:
+     delta_f = fs / N = 100 Hz / 196 muestras = 0.51 Hz.
+   Cada barra del espectro de Fourier representará un escalón de aproximadamente 0.51 Hz.
+
+4. **Predicción (¿Se distinguirán las clases en frecuencia?):**
+    No espero que las clases se distingan significativamente en el dominio de la frecuencia
+    **Razón:** El problema actual consiste en clasificar el **tamaño físicamente extenso** de piezas (chica, mediana, grande). El paso de una pieza bajo el sensor ultrasónico produce una caída de distancia continua (un pulso ancho en el tiempo), no una señal oscilatoria o vibratoria periódica (como el zumbido de un motor o el acabado de una superficie). Por lo tanto, la información discriminante principal reside en la duración y amplitud temporal, y no en picos de frecuencia específicos.
 
 
 
