@@ -244,8 +244,25 @@ La mejor característica será: La duración del evento. Debido a que la banda a
     No espero que las clases se distingan significativamente en el dominio de la frecuencia
     **Razón:** El problema actual consiste en clasificar el **tamaño físicamente extenso** de piezas (chica, mediana, grande). El paso de una pieza bajo el sensor ultrasónico produce una caída de distancia continua (un pulso ancho en el tiempo), no una señal oscilatoria o vibratoria periódica (como el zumbido de un motor o el acabado de una superficie). Por lo tanto, la información discriminante principal reside en la duración y amplitud temporal, y no en picos de frecuencia específicos.
 
+### Antes de la clase
+#### Bloque 2
 
+### Antes de la clase - Semana 6 Bloque 2: Análisis Espectral FFT
 
+1. **¿Qué frecuencia dominante tiene tu señal y si tiene sentido físico?**
+   Frecuencia dominante: Se ubica en el rango de 0.51 Hz a 1.53 Hz.
+   Sentido físico: Tiene pleno sentido físico. El paso de una pieza bajo el sensor ultrasónico es un evento suave y lento que dura aproximadamente entre 1 y 2 segundos. Esto corresponde a un único pulso en el tiempo, por lo que casi toda la energía de la señal se concentra en frecuencias muy bajas (< 2 Hz).
+
+2. **¿Si las features de frecuencia separan tus clases o no, con la gráfica que lo respalde?**
+
+   Resultado: Las características de frecuencia NO separan claramente las clases.
+   Respaldo: En la gráfica figuras/espectro.png  se observa que tanto las piezas chicas como las grandes comparten la misma forma espectral con concentración de energía en bajas frecuencias (0 a 5 Hz). Asimismo, en figuras/features_espectro.png, la frecuencia dominante es prácticamente constante para todas las pasadas sin importar la clase.
+
+3. **Decisión (Te las quedas o las quitas, y por qué):**
+
+   Decisión: Las quito de `features.csv.
+
+   Razón: El fenómeno medido con el sensor ultrasónico no involucra vibraciones ni patrones oscilatorios periódicos (como el sonido o la rugosidad). Dado que el espectro es prácticamente el mismo para todas las pasadas a velocidad constante de la banda, agregar estas características no aporta información discriminante relevante y agregaría ruido al modelo clasificador.
 
 
 ## Semana 8 
