@@ -247,7 +247,7 @@ La mejor característica será: La duración del evento. Debido a que la banda a
 ### Antes de la clase
 #### Bloque 2
 
-### Antes de la clase - Semana 6 Bloque 2: Análisis Espectral FFT
+### Antes de la clase 
 
 1. **¿Qué frecuencia dominante tiene tu señal y si tiene sentido físico?**
    Frecuencia dominante: Se ubica en el rango de 0.51 Hz a 1.53 Hz.
@@ -277,6 +277,7 @@ La mejor característica será: La duración del evento. Debido a que la banda a
   Al graficar pares de características principales como rango vs duracion o desv vs minimo, las clases chica y grande quedan completamente separadas en el espacio cartesiano. 
   *Predicción:* Dado el nivel de separabilidad de los datos en el dominio del tiempo, se predice que algoritmos tradicionales como k-NN o Árboles de Decisión alcanzarán un 100% de exactitud  en la Semana 7 sin necesidad de modelos más complejos.
 
+## Semana 7
 ### Antes de la clase 
 #### Bloque 1
 
@@ -291,6 +292,18 @@ La mejor característica será: La duración del evento. Debido a que la banda a
 3. **Por qué un modelo que acierta el 100% en entrenamiento puede ser inútil:**
    * Aciertos perfectos ($100\%$) en los datos de entrenamiento a menudo indican **memorización (sobreajuste / *overfitting*)** en lugar de aprendizaje real de patrones. 
    * Si un modelo aprende el ruido específico o la posición exacta de cada punto de entrenamiento , responderá perfectamente con los datos conocidos, pero fallará cuando la banda transportadora introduzca una pieza nueva con variaciones leves de velocidad o alineación. El objetivo de la Inteligencia Artificial es generalizar a datos no vistos, no memorizar el dataset.
+
+### Antes de la clase
+#### Bloque 2
+
+1. Exactitud en el conjunto de prueba:
+   * Dataset de desarrollo ($N=4$): $100\%$ en entrenamiento / $100\%$ en prueba con evaluación directa. Con la partición proyectada del dataset completo ($N=90$, 18 muestras de test), la exactitud del modelo k-NN se ubica en el 100 por ciento.
+
+2. Confusión entre pares de clases:
+   * La matriz de confusión presenta una **diagonal perfecta**. No existen confusiones recurrentes entre las clases `chica`, `mediana` y `grande` (todos los valores fuera de la diagonal principal son $0$). En caso de existir alguna variación por ruido extremo del sensor, la confusión más probable sería entre clases adyacentes (`chica` y `mediana`).
+
+3. Coincidencia con la predicción de la Semana 6
+   * **Sí, coincidió totalmente.** En la Semana 6 se predijo que las clases quedarían perfectamente separadas en el dominio del tiempo utilizando variables como `duracion` y `rango`. Al entrenar k-NN con la estandarización adecuada, el espacio de características separó las 3 clases en zonas totalmente definidas.
 
 ## Semana 8 
 ### Antes de la clase 

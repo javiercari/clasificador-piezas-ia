@@ -1,55 +1,87 @@
-# entrenar.py - Preparación de X, y, partición train/test y entrenamiento base (Semana 7 Bloque 1)
 
 import pandas as pd
-import numpy as np
+import joblib
+import matplotlib.pyplot as plt
+import os
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
-import os
+from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 
-# 1. Cargar dataset de características
+# 1. Definir rutas relativas al proyecto
 carpeta_codigo = os.path.dirname(os.path.abspath(__file__))
 carpeta_proyecto = os.path.dirname(carpeta_codigo)
 ruta_features = os.path.join(carpeta_proyecto, 'datos', 'features.csv')
+ruta_modelo = os.path.join(carpeta_proyecto, 'modelo.pkl')
+ruta_figura_cm = os.path.join(carpeta_proyecto, 'figuras', 'confusion.png')
+
+os.makedirs(os.path.join(carpeta_proyecto, 'figuras'), exist_ok=True)
 
 if not os.path.exists(ruta_features):
     print(f"No se encontró {ruta_features}. Ejecuta primero features.py.")
     exit()
 
-df = pd.read_csv(ruta_features)
+features = pd.read_csv(ruta_features)
 
-# 2. Separar características (X) y vector de etiquetas (y)
-# Se eliminan 'ventana' (identificador) y 'etiqueta' (variable objetivo)
-X = df.drop(columns=['ventana', 'etiqueta'])
-y = df['etiqueta']
+X = features.drop(columns=['ventana', 'etiqueta'])
+y = features['etiqueta']
 
-print(f"Dataset cargado: {X.shape[0]} ejemplos, {X.shape[1]} características.")
-
-# 3. Partición estratificada (Train / Test)
-if len(df) >= 6:
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42, stratify=y
-    )
+# Partición de datos adaptativa para fase de desarrollo y dataset completo ($N=90$)
+if len(features) >= 6 and len(y.unique()) > 1:
+    try:
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y,
+            test_size=0.25,
+            stratify=y,        # Misma proporción de clases en ambas partes
+            random_state=42   # Semilla para repetibilidad
+        )
+    except ValueError:
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.25, random_state=42
+        )
 else:
-    # Para datasets pequeños en desarrollo, usar partición funcional
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.25, random_state=42
-    )
+    # Muestras iniciales de prueba
+    X_train, X_test, y_train, y_test = X, X, y, y
 
-# 4. Estandarización de características (Crucial para k-NN)
-scaler = StandardScaler()
-X_train_esc = scaler.fit_transform(X_train)
-X_test_esc = scaler.transform(X_test)
+# Estandarización: fit_transform en train, transform en test
+escalador = StandardScaler()
+X_train_esc = escalador.fit_transform(X_train)
+X_test_esc  = escalador.transform(X_test)
 
-# 5. Modelo baseline: Árbol de Decisión
-arbol = DecisionTreeClassifier(max_depth=3, random_state=42)
-arbol.fit(X_train, y_train)
+# Definir k-NN (k=5 para el dataset completo o adaptable para pruebas cortas)
+n_vecinos = min(5, len(X_train)) if len(X_train) >= 5 else max(1, len(X_train))
+modelo = KNeighborsClassifier(n_neighbors=n_vecinos)
+modelo.fit(X_train_esc, y_train)
 
-acc_train = accuracy_score(y_train, arbol.predict(X_train)) * 100
-acc_test = accuracy_score(y_test, arbol.predict(X_test)) * 100
+y_pred = modelo.predict(X_test_esc)
 
-print(f"\n--- Modelo Inicial: Árbol de Decisión ---")
-print(f"Exactitud Entrenamiento: {acc_train:.1f}%")
-print(f"Exactitud Prueba (Test): {acc_test:.1f}%")
+clases_ordenadas = sorted(y.unique())
+acc = accuracy_score(y_test, y_pred)
+cm = confusion_matrix(y_test, y_pred, labels=clases_ordenadas)
+
+print(f"Exactitud: {acc * 100:.2f}%")
+print()
+print("Matriz de confusión:")
+print(cm)
+print("Clases en ese orden:", clases_ordenadas)
+
+# El escalador se guarda junto al modelo y las columnas: sin ellos el modelo no sirve en producción
+joblib.dump(
+    {
+        'modelo': modelo,
+        'escalador': escalador,
+        'columnas': list(X.columns)
+    },
+    ruta_modelo
+)
+print(f"\nGuardado en {ruta_modelo}")
+
+# TODO RESUELTO: Graficar la matriz de confusión y guardarla en figuras/confusion.png
+fig, ax = plt.subplots(figsize=(6, 5))
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=clases_ordenadas)
+disp.plot(cmap=plt.cm.Blues, ax=ax, values_format='d')
+plt.title('Matriz de Confusión - k-NN')
+plt.savefig(ruta_figura_cm, dpi=300, bbox_inches='tight')
+plt.close()
+
+print(f"Matriz de confusión guardada en: {ruta_figura_cm}")
