@@ -277,6 +277,21 @@ La mejor característica será: La duración del evento. Debido a que la banda a
   Al graficar pares de características principales como rango vs duracion o desv vs minimo, las clases chica y grande quedan completamente separadas en el espacio cartesiano. 
   *Predicción:* Dado el nivel de separabilidad de los datos en el dominio del tiempo, se predice que algoritmos tradicionales como k-NN o Árboles de Decisión alcanzarán un 100% de exactitud  en la Semana 7 sin necesidad de modelos más complejos.
 
+### Antes de la clase 
+#### Bloque 1
+
+1. **División de ejemplos (Entrenamiento vs Prueba):**
+    Dataset proyectado completo ($N = 90$ ejemplos, 30 por clase): Con una partición $80/20$ estratificada (stratify=y), se utilizarán 72 ejemplos para entrenamiento (24 de cada clase) y 18 ejemplos para prueba (6 de cada clase). 
+   En el conjunto actual de desarrollo ($N = 4$ ventanas): Se utiliza una partición proporcional $75/25$ donde 3 ventanas alimentan el entrenamiento y 1 ventana se reserva para la validación inicial.
+
+2. **Algoritmo seleccionado para empezar y justificación:**
+   Algoritmo elegido: Árbol de Decisión DecisionTreeClassifier seguido de k-NN.
+   Justificación: El problema consiste en clasificar piezas por tamaño (chica, mediana, grande) mediante lecturas de distancia. El Árbol de Decisión permite inspeccionar directamente las reglas lógicas aprendidas (por ejemplo, duracion > 120 ms y minimo < -5 cm), lo que facilita verificar si las fronteras trazadas por el modelo tienen sentido físico con respecto al comportamiento del sensor ultrasónico.
+
+3. **Por qué un modelo que acierta el 100% en entrenamiento puede ser inútil:**
+   * Aciertos perfectos ($100\%$) en los datos de entrenamiento a menudo indican **memorización (sobreajuste / *overfitting*)** en lugar de aprendizaje real de patrones. 
+   * Si un modelo aprende el ruido específico o la posición exacta de cada punto de entrenamiento , responderá perfectamente con los datos conocidos, pero fallará cuando la banda transportadora introduzca una pieza nueva con variaciones leves de velocidad o alineación. El objetivo de la Inteligencia Artificial es generalizar a datos no vistos, no memorizar el dataset.
+
 ## Semana 8 
 ### Antes de la clase 
 
