@@ -346,3 +346,27 @@ Las respuestas de este bloque aun no las puedo responder ya que aun voy algo atr
 3. **Punto atípico detectado y análisis de su señal:**
 * **Ventana identificada:** Se observa la **ventana `v2`** (clase `grande`) desplazada hacia el extremo negativo de `PC1` (`PC1 = -2.98`) respecto al resto de muestras.
    * **Hallazgo en su señal:** Al inspeccionar sus métricas y señal corregida, registra una duración notablemente mayor (`179` muestras) y una energía acumulada muy superior (`7169.1`) debido a un paso más lento de la pieza frente al sensor ultrasónico HC-SR04.
+
+
+   ## Semana 11
+   ### Antes de la clase
+   #### Bloque 1
+
+1. **Tabla cruzada (`pd.crosstab(y, grupos)`):**
+   ```text
+   col_0     0   1   2
+   etiqueta           
+   chica     9   2   0
+   grande    2  10   1
+   mediana   5   5   0
+
+
+1. K-Means encontró tus clases o no? ¿Qué te dice eso de tu problema?
+
+No las encontró de forma limpia; las encontró solo parcialmente. K-Means sí logró separar los extremos (chica cayó mayoritariamente en el Grupo 0 con 9/11 muestras, y grande en el Grupo 1 con 10/13 muestras), pero partió a la clase mediana exactamente a la mitad (5 en el Grupo 0 y 5 en el Grupo 1) y gastó el Grupo 2 en aislar un único punto atípico de la clase grande.
+
+Qué dice de nuestro problema: Que en nuestro dataset real de 34 ventanas, las fronteras entre tamaños no forman tres islas separadas, sino un espectro continuo donde las piezas medianas se solapan con las chicas y las grandes. Además, demuestra la sensibilidad de K-Means a los valores atípicos (outliers).
+
+2. Si no las encontró: ¿qué crees que separó en su lugar?
+
+En lugar de separar por las tres etiquetas de tamaño definidas por nosotros, K-Means dividió los datos en dos regímenes de intensidad de señal (pulsos de baja energía/corta duración en el Grupo 0 frente a pulsos de alta energía/larga duración en el Grupo 1, influenciados tanto por el tamaño como por la velocidad de paso en la banda) y usó el tercer centroide para aislar una ventana anómala extrema.
