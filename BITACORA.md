@@ -325,8 +325,24 @@ Las respuestas de este bloque aun no las puedo responder ya que aun voy algo atr
 
 2. **¿Qué le pasaría a tu sistema actual si por la banda pasara un objeto que no es ninguna de tus tres clases? (Respuesta concreta)**
    * Nuestro modelo actual (k-NN / Árbol de Decisión) es un clasificador supervisado de "mundo cerrado": **no tiene la opción de decir "no sé" o "objeto desconocido"**.
-   
+
    * **Qué respondería concretamente:** Si pasara un tornillo, un pedazo de cartón o una pieza rota, `modelo.predict()` calcularía sus características y **respondería forzosamente con una de las tres etiquetas que conoce (`chica`, `mediana` o `grande`)**. Por ejemplo, un pedazo de cartón plano podría generar una caída de distancia muy leve y una duración larga, por lo que k-NN buscaría a los 5 vecinos más cercanos dentro de su catálogo conocido y lo clasificaría con total seguridad como pieza `chica` o `grande`, cometiendo un error silencioso en la línea de producción.
 
 3. **Con tus palabras, ¿qué busca PCA?**
    * PCA (Análisis de Componentes Principales) busca las direcciones o ejes nuevos (combinaciones de las características originales) en donde los datos tienen la **mayor dispersión o varianza** (es decir, donde hay más información que diferencia a las muestras). Su objetivo es comprimir o proyectar los datos de muchas dimensiones (7D) a unas pocas dimensiones principales (2D o 3D) conservando la mayor cantidad de información posible y eliminando la redundancia entre variables repetitivas.
+
+
+### Antes de la clase
+#### Bloque 2
+
+   **Porcentaje de varianza explicada por las dos primeras componentes:**
+   * **PC1 explica el 77.21%** de la varianza y **PC2 explica el 15.49%**, logrando una **varianza acumulada del 92.70%** *(actualiza estos valores si la consola te muestra otros al correr el script sobre tu archivo final)*.
+   * Esto significa que al comprimir las 7 características originales a solo 2 dimensiones conservamos más del **92% de la información total** del dataset (perdiendo menos del 8%).
+
+2. **¿Las clases se separan solas en el plano de PCA? ¿Qué significa?**
+   * En el plano `PC1 vs PC2` (`figuras/pca.png`), las clases muestran separación parcial según la magnitud y duración del pulso, aunque con dispersión interna dentro de una misma categoría.
+   * **Qué significa:** Cuando se separan, confirma que las direcciones de mayor variación física de la señal (duración de obstrucción y caída de distancia) coinciden directamente con las categorías de tamaño definidas. Cuando existe traslape, significa que la dirección de máxima varianza global (que PCA calcula sin ver las etiquetas) está influenciada por variaciones internas de velocidad o posición en la banda, pero el clasificador supervisado aún puede separarlas usando las dimensiones restantes.
+
+3. **Punto atípico detectado y análisis de su señal:**
+* **Ventana identificada:** Se observa la **ventana `v2`** (clase `grande`) desplazada hacia el extremo negativo de `PC1` (`PC1 = -2.98`) respecto al resto de muestras.
+   * **Hallazgo en su señal:** Al inspeccionar sus métricas y señal corregida, registra una duración notablemente mayor (`179` muestras) y una energía acumulada muy superior (`7169.1`) debido a un paso más lento de la pieza frente al sensor ultrasónico HC-SR04.
