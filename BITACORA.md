@@ -311,3 +311,22 @@ La mejor característica será: La duración del evento. Debido a que la banda a
 #### Bloque 1
 
 Las respuestas de este bloque aun no las puedo responder ya que aun voy algo atrasado, en la clase virtual le comente mi situacion respecto a mis tiempos ya que estudio y trabajo y me comento que estaba bien. Solo lo que entrego es el codigo evaluar hecho. Tratare de ponerme al corriente para cuando llegue aqui ya poder responderlo.
+
+
+
+## Semana 10
+### Antes de la clase
+#### Bloque 1
+
+**¿Cuántas características tiene tu features.csv y por qué eso es difícil de visualizar?**
+   * Mi archivo `datos/features.csv` tiene **7 características** (`media`, `desv`, `minimo`, `maximo`, `rango`, `energia` y `duracion`), además del identificador `ventana` y la `etiqueta`.
+
+   * **Por qué es difícil de visualizar:** Cada ventana o pieza pasada por el sensor representa un punto en un espacio de **7 dimensiones**. Como los humanos solo podemos visualizar gráficas en 2D o 3D, tendríamos que revisar **21 combinaciones distintas de pares de variables** (7 × 6 / 2 = 21 gráficas de dispersión) sin poder ver la estructura completa al mismo tiempo. Además, varias de nuestras variables están correlacionadas (por ejemplo, `rango`, `desv` y `minimo` miden variaciones de altura muy parecidas), por lo que estamos usando dimensiones redundantes para la misma información.
+
+2. **¿Qué le pasaría a tu sistema actual si por la banda pasara un objeto que no es ninguna de tus tres clases? (Respuesta concreta)**
+   * Nuestro modelo actual (k-NN / Árbol de Decisión) es un clasificador supervisado de "mundo cerrado": **no tiene la opción de decir "no sé" o "objeto desconocido"**.
+   
+   * **Qué respondería concretamente:** Si pasara un tornillo, un pedazo de cartón o una pieza rota, `modelo.predict()` calcularía sus características y **respondería forzosamente con una de las tres etiquetas que conoce (`chica`, `mediana` o `grande`)**. Por ejemplo, un pedazo de cartón plano podría generar una caída de distancia muy leve y una duración larga, por lo que k-NN buscaría a los 5 vecinos más cercanos dentro de su catálogo conocido y lo clasificaría con total seguridad como pieza `chica` o `grande`, cometiendo un error silencioso en la línea de producción.
+
+3. **Con tus palabras, ¿qué busca PCA?**
+   * PCA (Análisis de Componentes Principales) busca las direcciones o ejes nuevos (combinaciones de las características originales) en donde los datos tienen la **mayor dispersión o varianza** (es decir, donde hay más información que diferencia a las muestras). Su objetivo es comprimir o proyectar los datos de muchas dimensiones (7D) a unas pocas dimensiones principales (2D o 3D) conservando la mayor cantidad de información posible y eliminando la redundancia entre variables repetitivas.
